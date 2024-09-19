@@ -1,0 +1,81 @@
+:root {
+    --accent-color: #3F16D5;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.pt-serif-regular {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pt-serif-bold {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.pt-serif-regular-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.pt-serif-bold-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.montserrat-900 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 90px;
+}
+#header #title {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    color: var(--accent-color);
+    letter-spacing: calc(32px * 0.21);
+    font-size: 32px;
+}
+#header #links {
+    display: flex;
+    align-items: center;
+}
+#header #avatar {
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+}
+.accent-button {
+    display: block;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 13.5px 19px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.ms-2 {
+    margin-left: 8px;
+}
