@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.views import View
+from django.contrib.auth import logout
 
 
 class LoginView(View):
@@ -24,3 +25,6 @@ class LoginView(View):
         return render(request, self.template_name, {'form': form})
 
 
+def logout_user(request):
+    logout(request)
+    return redirect('login')
