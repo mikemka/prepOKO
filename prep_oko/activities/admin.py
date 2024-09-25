@@ -1,3 +1,17 @@
 from django.contrib import admin
+from . import models
 
-# Register your models here.
+
+@admin.register(models.Activity)
+class ActivityAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(models.ActivityType)
+class ActivityTypeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(models.LevelType)
+class LevelTypeAdmin(admin.ModelAdmin):
+    pass

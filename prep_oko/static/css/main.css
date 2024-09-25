@@ -1,45 +1,14 @@
 :root {
+    --accent-color-darker: #2f119d;
     --accent-color: #3F16D5;
     --accent-bg: #3f16d51a;
+    --secondary: #656565;
+    --light: #C2C2C2;
 }
-
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
 }
-
-.pt-serif-regular {
-    font-family: "PT Serif", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.pt-serif-bold {
-    font-family: "PT Serif", serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.pt-serif-regular-italic {
-    font-family: "PT Serif", serif;
-    font-weight: 400;
-    font-style: italic;
-}
-
-.pt-serif-bold-italic {
-    font-family: "PT Serif", serif;
-    font-weight: 700;
-    font-style: italic;
-}
-
-.montserrat-900 {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: normal;
-}
-
 #header {
     display: flex;
     justify-content: space-between;
@@ -54,6 +23,13 @@ body {
     color: var(--accent-color);
     letter-spacing: calc(32px * 0.21);
     font-size: 32px;
+    line-height: 38px;
+}
+.main-title span {
+    transition: all 0.1s ease-in-out;
+}
+.main-title:hover span {
+    font-size: 38px;
 }
 #header #links {
     display: flex;
@@ -64,7 +40,7 @@ body {
     height: 49px;
     border-radius: 50%;
 }
-.accent-button {
+.btn-accent {
     display: block;
     background: var(--accent-color);
     color: #fff;
@@ -77,9 +53,54 @@ body {
     text-decoration: none;
     border-radius: 8px;
     border: 0;
+    transition: all 0.15s ease-in-out;
+}
+.btn-accent:hover {
+    background: var(--accent-color-darker);
+}
+.btn-sm {
+    font-size: 12px;
+    padding: 9px 15px;
+}
+.btn-rounded {
+    border-radius: 100px;
+}
+.btn-unfocused {
+    background: #fff;
+    color: #000;
+    border: 1px solid var(--light);
+}
+.btn-unfocused:hover {
+    background: var(--accent-color);
+    color: #fff;
+    border: 1px solid var(--light);
 }
 .ms-2 {
     margin-left: 8px;
+}
+.mt-4 {
+    margin-top: 40px;
+}
+.px-2 {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.py-2 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.px-4 {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.text-center {
+    text-align: center;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.w-100 {
+    width: 100%;
 }
 .header-link {
     color: #000;
@@ -91,44 +112,29 @@ body {
     text-decoration: none;
     margin-right: 45px;
 }
-
 .login-card {
     border-radius: 30px;
     padding: 45px;
     box-shadow: 0 4px 17px #0000002b;
     min-width: min(350px, calc(100vw - 90px - 50px));
+    max-width: 600px;
 }
-
 .screen-center {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .subtitle-default {
     font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
 }
-
-.mt-4 {
-    margin-top: 40px;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-uppercase {
-    text-transform: uppercase;
-}
-
 .form-login p {
     position: relative;
-    margin-top: 20px;
-    margin-bottom: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 .form-login p label {
     position: absolute;
@@ -152,11 +158,50 @@ body {
     font-weight: 500;
     font-size: 12px;
 }
-
-.w-100 {
-    width: 100%;
+.errorlist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-
-.btn-sm {
-    font-size: 12px;
+.errorlist li {
+    margin: 0;
+    padding: 10px 13px;
+    border-radius: 8px;
+    border: 3px solid var(--accent-bg);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+.main-title-header {
+    padding: 16px 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-title-header-data {
+    display: flex;
+    align-items: end;
+}
+.main-title-header-data h1 {
+    margin: 0;
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 70px;
+    letter-spacing: calc(70px * 0.02);
+}
+.main-title-header-data p {
+    margin-top: 0;
+    margin-left: 20px;
+    margin-bottom: 7px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: calc(16px * (-0.02));
+    color: var(--secondary);
+}
+.main-title-header-buttons {
+    display: flex;
+    align-items: center;
 }

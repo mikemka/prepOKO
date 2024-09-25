@@ -5,10 +5,14 @@ from django.urls import path, include
 
 urlpatterns = [
     path('dev/admin/', admin.site.urls),
-    path('', include('users.urls')),
-    # path('admin/', admin.site.urls),
-    # path('activities/', include('users.urls')),
-    # path('moderation/', include('users.urls')),
+    path('users/', include(
+        'users.urls',
+        namespace='users',
+    )),
+    path('activities/', include(
+        'activities.urls',
+        namespace='activities',
+    )),
 ]
 
 

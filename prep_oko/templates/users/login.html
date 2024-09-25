@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
-{% block disable_header %}
-{% endblock disable_header %}
+{% block disable_navbar %}
+{% endblock disable_navbar %}
 
 {% block content %}
 <div class="screen-center">
   <div class="login-card">
     <div class="main-title text-center">ПРЕП👁️K👁️</div>
     <h1 class="subtitle-default mt-4" style="margin-left: 16px;">Вход</h1>
-    <form method="post" class="form-login" action="{% url 'login' %}">
+    <form method="post" class="form-login" action="{% url 'users:login' %}">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit" class="accent-button w-100 mt-4 text-uppercase btn-sm">Войти</button>
+      <button type="submit" class="btn-accent w-100 mt-4 text-uppercase btn-sm">Войти</button>
     </form>
   </div>
 </div>
