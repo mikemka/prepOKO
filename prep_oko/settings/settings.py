@@ -4,6 +4,8 @@ from pathlib import Path
 from os import getenv
 
 
+LOGIN_URL = '/users/login/'
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 DOTENV_PATH = BASE_DIR / '.env'

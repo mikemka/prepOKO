@@ -4,4 +4,36 @@
 
 {% include 'includes/header.html' with title='Активности' date_start='01 сент. 2024' date_end='07 сент. 2024' %}
 
+<div class="container-x">
+    <p class="text-end">
+        <a class="btn-accent" href="{% url 'activities:new' %}">
+            Добавить активность
+        </a>
+    </p>
+    <table class="mt-4">
+        <thead>
+            <tr>
+                <th>Тип</th>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Статус</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activity in activities %}
+                <tr>
+                    <td>{{ activity.type }}</td>
+                    <td>{{ activity.title }}</td>
+                    <td><a href="#{{ activity.id }}">Смотреть подробнее</a></td>
+                    <td>
+                        {% if activity.status == 'accepted' %}✅{% endif %}
+                        {% if activity.status == 'rejected' %}❌{% endif %}
+                        {% if activity.status == 'processing' %}🔄{% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 {% endblock content %}

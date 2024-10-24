@@ -1,13 +1,26 @@
-<section class="main-title-header">
-    <div class="main-title-header-data">
-        <h1>{{ title }}</h1>
-        {% if date_start %}
-            <p>{{ date_start }} — {{ date_end }}</p>
-            <button class="btn-accent btn-rounded btn-sm ms-2">📅</button>
+<div class="container-x mb-4">
+    <section class="main-title-header">
+        <div class="main-title-header-data">
+            <h1>{{ title }}</h1>
+            {% if date_start %}
+                <p>{{ date_start }} — {{ date_end }}</p>
+                <button class="btn-accent btn-rounded btn-sm ms-2">📅</button>
+            {% endif %}
+            
+            {% if backward_url %}
+            <div class="main-title-header-buttons" style="padding-bottom: 10px; padding-left: 30px;">
+                <a class="btn-accent btn-rounded btn-sm px-4 ms-2" href="#">5В</a>
+                <a class="btn-accent btn-rounded btn-sm btn-unfocused px-4 ms-2" href="#">8А</a>
+            </div>
+            {% endif %}
+        </div>
+        {% if backward_url %}
+        <a class="btn-accent btn-rounded btn-sm px-4 ms-2" href="{% url backward_url %}">Назад</a>
+        {% else %}
+        <div class="main-title-header-buttons">
+            <a class="btn-accent btn-rounded btn-sm px-4 ms-2" href="#">5В</a>
+            <a class="btn-accent btn-rounded btn-sm btn-unfocused px-4 ms-2" href="#">8А</a>
+        </div>
         {% endif %}
-    </div>
-    <div class="main-title-header-buttons">
-        <a class="btn-accent btn-rounded btn-sm px-4 ms-2" href="#">5В</a>
-        <a class="btn-accent btn-rounded btn-sm btn-unfocused px-4 ms-2" href="#">8А</a>
-    </div>
-</section>
+    </section>
+</div>
