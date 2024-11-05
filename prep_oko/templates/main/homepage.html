@@ -1,0 +1,375 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПРЕП👁️К👁️ - Платформа для учителей</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-color-darker: #2f119d;
+            --accent-color: #3F16D5;
+            --accent-bg: #3f16d51a;
+            --secondary: #656565;
+            --light: #C2C2C2;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-x {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 90px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .main-title {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 900;
+            color: var(--accent-color);
+            letter-spacing: calc(32px * 0.21);
+            font-size: 32px;
+            line-height: 38px;
+        }
+
+        .main-title span {
+            transition: all 0.1s ease-in-out;
+        }
+
+        .main-title:hover span {
+            font-size: 38px;
+        }
+
+        #header #links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-link {
+            color: #000;
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: var(--accent-color);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-accent {
+            background: var(--accent-color);
+            color: #fff;
+            padding: 13.5px 19px;
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 0;
+            transition: all 0.15s ease-in-out;
+            cursor: pointer;
+        }
+
+        .btn-accent:hover {
+            background: var(--accent-color-darker);
+        }
+
+        .btn-disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-disabled:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        #hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+
+        .hero-content h1 {
+            font-family: "PT Serif", serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+
+        .btn-lg {
+            font-size: 18px;
+            padding: 15px 30px;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        #features, #about, #contact {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-family: "PT Serif", serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--accent-bg);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: var(--secondary);
+        }
+
+        #about p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--light);
+            border-radius: 5px;
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        footer {
+            background-color: var(--accent-bg);
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color-darker);
+        }
+
+        @media (max-width: 768px) {
+            #header {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            #header #links {
+                margin-top: 20px;
+                flex-direction: column;
+            }
+
+            .auth-buttons {
+                margin-top: 20px;
+            }
+
+            #hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 40px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="main-title">ПРЕП<span>👁️</span>K<span>👁️</span></div>
+        <nav id="links">
+            <a href="#features" class="header-link">Возможности</a>
+            <a href="#about" class="header-link">О нас</a>
+            <a href="#contact" class="header-link">Контакты</a>
+            <div class="auth-buttons">
+                <a href="{% url 'users:login' %}" class="btn-accent">Войти</a>
+                <button class="btn-accent btn-disabled" title="Модератор должен создать вам аккаунт">Регистрация</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-x">
+        <section id="hero" class="container-x">
+            <div class="hero-content">
+                <h1>Упростите управление классом</h1>
+                <p>ПРЕП👁️К👁️ - ваш надежный помощник в организации учебного процесса и внеклассных мероприятий. Оптимизируйте свою работу и сосредоточьтесь на главном - обучении и развитии учеников.</p>
+                <a href="{% url 'users:login' %}" class="btn-accent btn-lg">Начать бесплатно</a>
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'img/teacher.png' %}" alt="Учитель работает с ПРЕП👁️К👁️" style="width: 100%">
+            </div>
+        </section>
+
+        <section id="features" class="container-x">
+            <h2>Возможности платформы</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Управление активностями</h3>
+                    <p>Легко планируйте и отслеживайте классные часы, экскурсии и другие мероприятия. Наша система поможет вам организовать любое событие.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Рейтинговая система</h3>
+                    <p>Мотивируйте учеников с помощью прозрачной системы оценки достижений. Отслеживайте прогресс и поощряйте успехи.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Управление классами</h3>
+                    <p>Ведите несколько классов одновременно, сохраняя порядок и организованность. Удобные инструменты для эффективного управления.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Аналитика и отчеты</h3>
+                    <p>Получайте ценные данные о прогрессе учеников и эффективности мероприятий. Принимайте решения на основе реальных показателей.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container-x">
+            <h2>О нас</h2>
+            <p>ПРЕП👁️К👁️ - это инновационная платформа, разработанная для поддержки учителей в их важной миссии. Мы стремимся сделать образовательный процесс более эффективным, увлекательным и организованным. Наша команда состоит из опытных педагогов и разработчиков, объединенных общей целью - улучшить качество образования.</p>
+        </section>
+
+        <section id="contact" class="container-x">
+            <h2>Свяжитесь с нами</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="email" placeholder="Ваш email" required>
+                <textarea placeholder="Ваше сообщение" required></textarea>
+                <button type="submit" class="btn-accent">Отправить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content container-x">
+            <div class="main-title">ПРЕП<span>👁️</span>K<span>👁️</span></div>
+            <p>&copy; {% now 'Y' %} ПРЕП👁️К👁️. Все права защищены.</p>
+        </div>
+        <div class="footer-content container-x" style="font-size: 75%;">
+            Было сделано с использованием нейрогенеративных инструментов
+        </div>
+    </footer>
+</body>
+</html>

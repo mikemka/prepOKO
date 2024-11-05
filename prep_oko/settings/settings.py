@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'activities',
     'moderation',
     'users',
+    'main',
 ]
 
 MIDDLEWARE = [

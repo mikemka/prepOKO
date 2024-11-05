@@ -13,6 +13,10 @@ urlpatterns = [
         'activities.urls',
         namespace='activities',
     )),
+    path('', include(
+        'main.urls',
+        namespace='main',
+    )),
 ]
 
 
