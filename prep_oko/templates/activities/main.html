@@ -6,7 +6,7 @@
 
 <div class="container-x">
     <p class="text-end">
-        <a class="btn-accent" href="{% url 'activities:new' %}">
+        <a class="btn-accent" href="{% url 'activities:new' form_id=students_form.id %}">
             Добавить активность
         </a>
     </p>
@@ -22,13 +22,13 @@
         <tbody>
             {% for activity in activities %}
                 <tr>
-                    <td>{{ activity.type }}</td>
+                    <td>{{ activity.activity_type }}</td>
                     <td>{{ activity.title }}</td>
                     <td><a href="#{{ activity.id }}">Смотреть подробнее</a></td>
                     <td>
-                        {% if activity.status == 'accepted' %}✅{% endif %}
-                        {% if activity.status == 'rejected' %}❌{% endif %}
-                        {% if activity.status == 'processing' %}🔄{% endif %}
+                        {% if activity.checking_status == 'accepted' %}✅{% endif %}
+                        {% if activity.checking_status == 'declined' %}❌{% endif %}
+                        {% if activity.checking_status == 'pending' %}🔄{% endif %}
                     </td>
                 </tr>
             {% endfor %}

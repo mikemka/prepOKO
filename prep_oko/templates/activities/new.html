@@ -5,10 +5,10 @@
 {% include 'includes/header.html' with title='Новая активность' backward_url='activities:main' %}
 
 <div class="container-x">
-    <form action="{% url 'activities:new' %}" method="post">
+    <form action="{% url 'activities:new' form_id=students_form.id %}" method="post" class="form-control">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Create Activity</button>
+        <button type="submit" class="btn-accent">Создать активность</button>
     </form>
 </div>
 

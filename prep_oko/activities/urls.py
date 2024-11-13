@@ -6,5 +6,6 @@ app_name = 'activities'
 
 urlpatterns = [
     path('', views.ActivitiesView.as_view(), name='main'),
-    path('new/', views.NewActivityView.as_view(), name='new'),
+    path('<int:form_id>/', views.ActivitiesView.as_view(), name='main_with_id'),
+    path('<int:form_id>/new/', views.NewActivityView.as_view(), name='new'),
 ]

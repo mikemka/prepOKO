@@ -244,3 +244,28 @@ td a {
     text-decoration: none;
     color: var(--accent-color);
 }
+.form-control label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+.form-control input, .form-control textarea, .form-control select {
+    display: block;
+    padding: 6px;
+    border: 1px solid #A3A3A3;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+.form-control select {
+    min-width: 250px;
+}
+.form-control input {
+    min-width: 238px;
+}
+.form-control textarea {
+    min-width: 50%;
+}
